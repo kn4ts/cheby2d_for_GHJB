@@ -1,5 +1,5 @@
-% Generating 2D chebyshev porinomial series (M^2 functions)
-%  from 1D chebyshev porinomial series T
+% Generating 2D chebyshev polynomial series (M^2 functions)
+%  from 1D chebyshev polynomial series T
 % Phi(x1,x2) is R^(1 times M^2) vector defined as,
 %  Phi = [ T_0(x1)T_0(x2)  T_0(x1)T_1(x2)  ... T_0(x1)T_M-1(x2) ...
 %          T_1(x1)T_0(x2) ...              ... T_1(x1)T_M-1(x2) ...

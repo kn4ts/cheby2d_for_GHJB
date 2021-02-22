@@ -1,4 +1,4 @@
-% Evaluate open-type product matrix for 2D chebyshev porinomial series
+% Evaluate open-type product matrix for 2D chebyshev polynomial series
 %  D satisfies Phi * <a,Phi> = D * Phi
 function D = eval_OpenProductMatrix(b,P0j,Pi0)
 	M = size(P0j,3);

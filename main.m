@@ -33,7 +33,7 @@ Phi = cheby2d_series(T);
 
 Den = eval_innerproduct_cheby2d(M);
 
-% Prepare operation matrices for chebyshev porinomial series
+% Prepare operation matrices for chebyshev polynomial series
 [ D1, D2 ] = genDifferentialMatrices_cheby2d_series(M);
 [ P0j, Pi0 ] = genProductTensors_cheby2d_series(M);
 

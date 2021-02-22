@@ -1,4 +1,4 @@
-% Evaluate coefficient matrix for product of chebyshev 2d porinomials
+% Evaluate coefficient matrix for product of chebyshev 2d polynomials
 %  <a,Phi>*<b,Phi> = Te_x1' * C * Te_x2,  Te_x in R^(2M)
 function C = eval_CoefficientProductMatrix_cheby2d_series(a,b,P0j,Pi0)
 	M = size(P0j,3);

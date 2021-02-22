@@ -1,4 +1,4 @@
-% Generating 1D chebyshev porinomial series (M functions)
+% Generating 1D chebyshev polynomial series (M functions)
 % T = [ T_0(x)  T_1(x)  ... T_M(x) ]^T
 function T = cheby1d_series(M)
 	T = {};
