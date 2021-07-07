@@ -15,7 +15,7 @@ sys = struct( ...
 );
 
 % Number of terms of Chebyshev Porinomial
-M  = 7; % porinomial order
+M  = 8; % porinomial order
 N  = 10; % iteration number
 
 %x0 = [0.2;0];
@@ -26,7 +26,7 @@ x0 = zeros(2,1);
 [K,S,e] = lqr(A,B,eye(2),1);
 K
 
-l  = @(x1,x2) x1.^2 +x2.^2;
+l  = @(x1,x2) 25*(x1.^2 +x2.^2);
 u0 = @(x1,x2) -K(1)*x0(1) -K(2)*x0(2);
 
 Chv = ChebySeries2D(M);
@@ -126,6 +126,65 @@ title('function V_b');
 xlabel('z_1 (= 5x_1)');
 ylabel('z_2 (= 5x_2)');
 
+
+% ======================================
+x0 = [2.5;0];
+Ts = 0.01;
+Tend = 20;
+Ns = Tend/Ts;
+TimeSeries = 0:Ts:Tend-Ts ;
+
+for Flag=0:1
+
+	x = x0;
+	x_h = zeros(2,Ns);
+	u_h = zeros(1,Ns);
+
+	x_h(:,1) = x;
+
+	for i=1:Ns-1
+	
+		switch Flag
+		case 0
+			uv = uL(0.2*x(1),0.2*x(2));
+		case 1
+			uv = u(0.2*x(1),0.2*x(2));
+		end
+	
+		xd =  [ f1(0.2*x(1),0.2*x(2))+g1(0.2*x(1),0.2*x(2))*uv ;
+			f2(0.2*x(1),0.2*x(2))+g2(0.2*x(1),0.2*x(2))*uv ];
+		x  = x + Ts * xd ;
+
+		x_h(:,i+1) = x;
+		u_h(:,i+1) = uv;
+	end
+
+	figure(3)
+
+	subplot(2,1,1)
+	hold on
+	switch Flag
+		case 0
+			plot(TimeSeries,x_h,'--');
+		case 1
+			plot(TimeSeries,x_h);
+	end
+	title('state variables');
+	grid on
+
+	subplot(2,1,2)
+	hold on
+	switch Flag
+		case 0
+			plot(TimeSeries,u_h,'--');
+		case 1
+			plot(TimeSeries,u_h);
+	end
+	title('input signal');
+	%plot(TimeSeries,u_h);
+	grid on
+
+end
 
 
 %for i=1:200
