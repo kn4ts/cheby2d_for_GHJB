@@ -15,7 +15,7 @@ sys = struct( ...
 );
 
 % Number of terms of Chebyshev Porinomial
-M  = 8; % porinomial order
+M  = 7; % porinomial order
 N  = 10; % iteration number
 
 %x0 = [0.2;0];
